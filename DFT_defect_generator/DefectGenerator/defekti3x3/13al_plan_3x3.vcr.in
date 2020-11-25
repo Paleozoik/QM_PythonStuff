@@ -1,0 +1,61 @@
+&control
+    calculation   = 'vc-relax',
+    restart_mode  = 'from_scratch',
+    prefix        = '13al_planar_2x2_vcr',
+    pseudo_dir    = './',
+    outdir        = './',
+    tstress       = .true.
+    tprnfor       = .true.
+    etot_conv_thr = 1.0D-5,
+    forc_conv_thr = 1.0D-4,
+    nstep         = 300
+ /
+&system
+    ibrav       = 4,
+    nat         = 17,
+    ntyp        = 1,
+    a           = 13.3674,
+    c           = 20.0,
+    occupations = 'smearing',
+    smearing    = 'm-p',
+    degauss     = 0.05,
+    ecutwfc     = 80,
+/
+&ELECTRONS
+    mixing_mode = 'plain',
+    mixing_beta = 0.4,
+/
+&IONS
+    ion_dynamics   = 'bfgs',
+    ion_positions = 'from_input',
+    upscale       = 100,
+/
+&CELL
+    cell_dynamics  = "bfgs",
+    press_conv_thr = 0.5D-4,
+    cell_dofree    = '2Dxy',
+/
+ATOMIC_SPECIES
+ Al  29.982   Al.upf
+
+ATOMIC_POSITIONS (angstrom)
+Al       0.000000586   2.572587870   0.000000000
+Al       2.227926741   1.286293428   0.000000000
+Al       4.455820211   2.572606066   0.000000000
+Al       6.683747538   1.286311624   0.000000000
+Al      -2.227895228   6.431450973   0.000000000
+Al       0.000032099   5.145156531   0.000000000
+Al       2.227925569   6.431469169   0.000000000
+Al       4.455852896   5.145174727   0.000000000
+Al      -4.455789870  10.290314076   0.000000000
+Al      -2.227862543   9.004019634   0.000000000
+Al       0.000030927  10.290332272   0.000000000
+Al       2.227958254   9.004037830   0.000000000
+Al      11.139568335   1.286329820   0.000000000
+Al       6.683746366   6.431487365   0.000000000
+Al       8.911673693   5.145192923   0.000000000
+Al       4.455851724  10.290350468   0.000000000
+Al       6.683779051   9.004056026   0.000000000     
+
+K_POINTS {automatic}
+1 1 1  0 0 0
